@@ -16,7 +16,7 @@
     <img src="/img/ffsf.png">
 
 
-    <h1><%=(String) request.getAttribute("uname")%> 환영합니다.</h1>
+    <h1><%=(String) session.getAttribute("uname")%> 환영합니다.</h1>
     <h1>${uname} 환영합니다.</h1>
 
     <%@ include file="todos.jsp"%>

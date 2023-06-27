@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-  <form method="post" action="/todoupdate">
+  <form method="post" action="/main">
     <input type="number" value="${todoid}" name="id">
     <input type="text" value="${content}" name="content">
     <input type="submit">

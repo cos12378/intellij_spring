@@ -24,10 +24,12 @@ public class UserController {
     public String getLoginPage(){
         return "/user/login";
     }
+
     @GetMapping("/signup")
     public String getSignup(){
         return "/user/signup";
     }
+
     @PostMapping("/login")
     public ModelAndView postLogin(
              @ModelAttribute LoginRequest request
@@ -38,10 +40,12 @@ public class UserController {
         User login = userService.login(request);
         if(login != null){
 //            mav.addObject()
-            session.setAttribute("id", login.getId());
-            session.setAttribute("name", login.getName());
+            session.setAttribute("uid", login.getId());
+            session.setAttribute("uname", login.getName());
+            System.out.println("Success");
             mav.setViewName("redirect:/main");
         }else {
+            System.out.println("fail");
             mav.setViewName("redirect:/user/login");
 //            if(idSave)
 //                mav.addObject("id",id);
