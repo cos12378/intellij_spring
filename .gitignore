@@ -4,7 +4,10 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+<<<<<<< HEAD
 .idea
+=======
+>>>>>>> b843c50798f5dfb7a6c6ab3b85c8a9994e73f8a9
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
