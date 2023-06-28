@@ -8,4 +8,13 @@
         <property name="username" value="root"/>
         <property name="password" value="1q2w3e4r!!"/>
     </bean>
+    <bean id="sessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value ="classpath:/sqlMap/*.xml"/>
+        <property name="configLocation" value = "classpath:/config/mybatisConfig.xml"/>
+    </bean>
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref ="sessionFactoryBean"/>
+
+    </bean>
 </beans>

@@ -1,4 +1,4 @@
-package com.naver.user.domain.dto;
+package com.naver.user.domain.entity;
 
 public class Todo {
     private Integer id;

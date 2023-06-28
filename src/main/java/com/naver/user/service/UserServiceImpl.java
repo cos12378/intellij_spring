@@ -1,7 +1,8 @@
 package com.naver.user.service;
 
+import com.naver.user.dao.TodoMapper;
 import com.naver.user.dao.UserDao;
-import com.naver.user.domain.dto.User;
+import com.naver.user.domain.entity.User;
 import com.naver.user.domain.request.LoginRequest;
 import com.naver.user.domain.request.SignupRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,21 @@ public class UserServiceImpl implements UserService {
 //        users.add(new User("id","123"));
 //        users.add(new User("id1","123"));
 //    }
-    @Autowired
-    private UserDao userDao;
+
+    private final UserDao userDao;
+
+
+    private final TodoMapper todoMapper;
+
+    public UserServiceImpl(UserDao userDao, TodoMapper todoMapper) {
+        this.userDao = userDao;
+        this.todoMapper = todoMapper;
+    }
+
     @Override
     public User login(LoginRequest request) {
         try {
-            return userDao.login(request.getId(), request.getPassword());
+            return todoMapper.login(request);
         }catch (Exception e){
             return null;
         }
@@ -34,4 +44,6 @@ public class UserServiceImpl implements UserService {
     public boolean signup(SignupRequest request) {
         return userDao.signup(request) != 0;
     }
+
+
 }

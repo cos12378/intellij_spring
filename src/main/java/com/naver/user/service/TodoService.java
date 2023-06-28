@@ -1,20 +1,23 @@
 package com.naver.user.service;
 
 import com.naver.user.dao.TodoDao;
-import com.naver.user.domain.dto.TodoJoinUser;
+import com.naver.user.dao.TodoMapper;
+
+import com.naver.user.domain.entity.TodoJoinUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class TodoService {
     private final TodoDao todoDao;
-
-    public TodoService(TodoDao todoDao) {
+    private TodoMapper todoMapper;
+    public TodoService(TodoDao todoDao, TodoMapper todoMapper) {
         this.todoDao = todoDao;
+        this.todoMapper = todoMapper;
     }
 
     public List<TodoJoinUser> findAll(){
-        return todoDao.findAll();
+        return todoMapper.findAll();
     }
 
     public int insert(Integer uid, String content){
@@ -23,6 +26,6 @@ public class TodoService {
     }
 
     public List<TodoJoinUser> findByKeyword(String keyword){
-        return todoDao.findByKeyword(keyword);
+        return todoMapper.findByKeyword(keyword);
     }
 }

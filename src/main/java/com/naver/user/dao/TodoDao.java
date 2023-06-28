@@ -40,19 +40,21 @@ public class TodoDao {
                         rs.getString("create_at"),
                         rs.getBoolean("checked"),
                         rs.getString("name"),
-                        rs.getInt("uid")
+                        rs.getInt("uid"),
+                        null
+
                 );
     }
 
 
     public int insert(Integer uid, String content){
         // 컨텐츠가 필요함, 유저id가 필요함.
-        System.out.println("insert1");
+
         String sql = "insert into todos(user_id, content, checked) " +
                 "values(?,?,false)";
-        System.out.println("insert2");
+
         try {
-            System.out.println("insert3");
+
             return jdbcTemplate.update(sql, uid, content);
         } catch(Exception e){
             return 0;

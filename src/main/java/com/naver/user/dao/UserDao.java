@@ -21,7 +21,7 @@ public class UserDao {
         String sql = "select id, username, password, name, create_at as createAt" +
                 " from users where username = ? and password = ?";
 //        jdbcTemplate.queryForObject(sql, getUserRowMapper(), id, pw);
-        return jdbcTemplate.queryForObject(sql, new UserRowMapper(), id, pw);
+        return jdbcTemplate.queryForObject(sql, getUserRowMapper(), id, pw);
     }
 
     private RowMapper<User> getUserRowMapper() {

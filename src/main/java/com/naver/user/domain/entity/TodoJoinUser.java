@@ -1,4 +1,4 @@
-package com.naver.user.domain.dto;
+package com.naver.user.domain.entity;
 
 public class TodoJoinUser {
     private Integer id;
@@ -7,18 +7,7 @@ public class TodoJoinUser {
     private boolean checked;
     private String name;
     private Integer uid;
-
     private Integer heart;
-
-    public TodoJoinUser(Integer id, String content, String createAt, boolean checked, String name, Integer uid, Integer heart) {
-        this.id = id;
-        this.content = content;
-        this.createAt = createAt;
-        this.checked = checked;
-        this.name = name;
-        this.uid = uid;
-        this.heart = heart;
-    }
 
     public Integer getId() {
         return id;
@@ -73,6 +62,16 @@ public class TodoJoinUser {
     }
 
     public void setHeart(Integer heart) {
+        this.heart = heart;
+    }
+
+    public TodoJoinUser(Integer id, String content, String createAt, boolean checked, String name, Integer uid, Integer heart) {
+        this.id = id;
+        this.content = content;
+        this.createAt = createAt;
+        this.checked = checked;
+        this.name = name;
+        this.uid = uid;
         this.heart = heart;
     }
 }
